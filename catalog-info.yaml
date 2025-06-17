@@ -1,3 +1,4 @@
+# catalog-info.yaml
 apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
@@ -7,15 +8,10 @@ metadata:
   tags:
     - idp
     - keycloak
-  annotations:
-    backstage.io/techdocs-ref: dir:.
   links:
     - url: http://localhost:9080/auth
       title: Keycloak Local Instance
       icon: dashboard
-    - url: https://www.keycloak.org/documentation
-      title: Keycloak Docs
-      icon: docs
 spec:
   type: service
   lifecycle: development
@@ -23,9 +19,7 @@ spec:
   system: system:default/identity
   providesApis:
     - keycloak-admin-api
-
 ---
-
 apiVersion: backstage.io/v1alpha1
 kind: API
 metadata:
@@ -49,4 +43,22 @@ spec:
           responses:
             '200':
               description: OK
-
+---
+apiVersion: backstage.io/v1alpha1
+kind: Group
+metadata:
+  name: platform-team
+  description: The Platform Engineering Team
+spec:
+  type: team
+  profile:
+    displayName: Platform Team
+    email: platform-team@example.com
+---
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: identity
+  description: Identity and Access Management System
+spec:
+  owner: group:default/platform-team
