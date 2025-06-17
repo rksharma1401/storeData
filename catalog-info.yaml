@@ -10,7 +10,7 @@ metadata:
   annotations:
     backstage.io/techdocs-ref: dir:.
   links:
-    - url: http://localhost:8080
+    - url: http://localhost:9080/auth
       title: Keycloak Local Instance
       icon: dashboard
     - url: https://www.keycloak.org/documentation
@@ -41,7 +41,7 @@ spec:
       title: Keycloak Admin API
       version: "1.0.0"
     servers:
-      - url: http://localhost:8080/auth
+      - url: http://localhost:9080/auth
     paths:
       /admin/realms:
         get:
