@@ -7,15 +7,25 @@ metadata:
   tags:
     - idp
     - keycloak
+  annotations:
+    backstage.io/techdocs-ref: dir:.
+  links:
+    - url: http://localhost:8080
+      title: Keycloak Local Instance
+      icon: dashboard
+    - url: https://www.keycloak.org/documentation
+      title: Keycloak Docs
+      icon: docs
 spec:
   type: service
   lifecycle: development
-  owner: platform-team
-  system: identity
+  owner: group:default/platform-team
+  system: system:default/identity
   providesApis:
     - keycloak-admin-api
 
 ---
+
 apiVersion: backstage.io/v1alpha1
 kind: API
 metadata:
@@ -24,9 +34,8 @@ metadata:
 spec:
   type: openapi
   lifecycle: development
-  owner: platform-team
+  owner: group:default/platform-team
   definition: |
-    # OpenAPI 3.0 definition stub
     openapi: 3.0.0
     info:
       title: Keycloak Admin API
@@ -40,3 +49,4 @@ spec:
           responses:
             '200':
               description: OK
+
