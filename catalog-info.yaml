@@ -42,22 +42,3 @@ spec:
           responses:
             '200':
               description: OK
----
-apiVersion: backstage.io/v1alpha1
-kind: Group
-metadata:
-  name: platform-team
-  description: The Platform Engineering Team
-spec:
-  type: team
-  profile:
-    displayName: Platform Team
-    email: platform-team@example.com
----
-apiVersion: backstage.io/v1alpha1
-kind: System
-metadata:
-  name: identity
-  description: Identity and Access Management System
-spec:
-  owner: group:default/platform-team
