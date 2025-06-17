@@ -1,0 +1,42 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: keycloak-local
+  title: Keycloak (Local Docker)
+  description: "Keycloak Identity Provider deployed via Docker Desktop on localhost"
+  tags:
+    - idp
+    - keycloak
+spec:
+  type: service
+  lifecycle: development
+  owner: platform-team
+  system: identity
+  providesApis:
+    - keycloak-admin-api
+
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: keycloak-admin-api
+  description: Keycloak Admin REST API
+spec:
+  type: openapi
+  lifecycle: development
+  owner: platform-team
+  definition: |
+    # OpenAPI 3.0 definition stub
+    openapi: 3.0.0
+    info:
+      title: Keycloak Admin API
+      version: "1.0.0"
+    servers:
+      - url: http://localhost:8080/auth
+    paths:
+      /admin/realms:
+        get:
+          summary: List realms
+          responses:
+            '200':
+              description: OK
