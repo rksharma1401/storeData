@@ -13,7 +13,7 @@ metadata:
     - url: http://localhost:9080/auth
       title: Keycloak Local Instance
       icon: dashboard
-    - url: https://github.com/your-org/keycloak-local/adr
+    - url: https://github.com/rksharma1401/storeData/tree/main/adr
       title: Architecture Decision Records
       icon: description
 spec:
