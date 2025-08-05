@@ -6,10 +6,9 @@ metadata:
   description: "Keycloak Identity Provider deployed via Docker Desktop on localhost"
   tags:
     - idp
-    - keycloak
-  
+    - keycloak 
   annotations:
-    adr.location: url:https://github.com/rksharma1401/storeData/tree/main/adr
+    backstage.io/adr-location: url:https://github.com/rksharma1401/storeData/tree/main/adr
   links:
     - url: http://localhost:9080/auth
       title: Keycloak Local Instance
