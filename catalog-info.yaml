@@ -7,10 +7,16 @@ metadata:
   tags:
     - idp
     - keycloak
+  
+  annotations:
+    adr.location: url:https://github.com/rksharma1401/storeData/tree/main/adr
   links:
     - url: http://localhost:9080/auth
       title: Keycloak Local Instance
       icon: dashboard
+    - url: https://github.com/your-org/keycloak-local/adr
+      title: Architecture Decision Records
+      icon: description
 spec:
   type: service
   lifecycle: development
