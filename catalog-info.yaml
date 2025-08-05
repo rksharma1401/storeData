@@ -8,7 +8,8 @@ metadata:
     - idp
     - keycloak 
   annotations:
-    backstage.io/adr-location: https://raw.githubusercontent.com/rksharma1401/storeData/refs/heads/main/adr/index.md
+    backstage.io/adr-location: github:https://github.com/rksharma1401/storeData/tree/main/adr
+
   links:
     - url: http://localhost:9080/auth
       title: Keycloak Local Instance
