@@ -1,18 +1,19 @@
 apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
-  name: keycloak-local
-  title: Keycloak (Local Docker)
-  description: "Keycloak Identity Provider deployed via Docker Desktop on localhost"
+  name: google-auth-local
+  title: Google Auth (Local/Test)
+  description: "Google OAuth 2.0 Identity Provider configured for local development or testing"
   tags:
     - idp
-    - keycloak 
+    - google
+    - oauth
   annotations:
     backstage.io/adr-location: https://github.com/rksharma1401/storeData/tree/main/adr
 
   links:
-    - url: http://localhost:9080/auth
-      title: Keycloak Local Instance
+    - url: http://localhost:9090/oauth2callback
+      title: Google OAuth Callback Endpoint
       icon: dashboard
     - url: https://github.com/rksharma1401/storeData/tree/main/adr
       title: Architecture Decision Records
@@ -23,28 +24,4 @@ spec:
   owner: group:default/platform-team
   system: system:default/identity
   providesApis:
-    - keycloak-admin-api
----
-apiVersion: backstage.io/v1alpha1
-kind: API
-metadata:
-  name: keycloak-admin-api
-  description: Keycloak Admin REST API
-spec:
-  type: openapi
-  lifecycle: development
-  owner: group:default/platform-team
-  definition: |
-    openapi: 3.0.0
-    info:
-      title: Keycloak Admin API
-      version: "1.0.0"
-    servers:
-      - url: http://localhost:9080/auth
-    paths:
-      /admin/realms:
-        get:
-          summary: List realms
-          responses:
-            '200':
-              description: OK
+    - google-oauth-api
