@@ -11,7 +11,7 @@ metadata:
   annotations:
     backstage.io/adr-location: https://github.com/rksharma1401/storeData/tree/main/adr
     github.com/project-slug: rksharma1401/google-auth-local
-    backstage.io/techdocs-ref: dir:.
+    backstage.io/techdocs-ref:  https://github.com/rksharma1401/storeData/tree/main/docs
     circleci.com/project-slug: github/rksharma1401/google-auth-local
 spec:
   type: service
