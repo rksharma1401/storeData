@@ -29,7 +29,7 @@ spec:
     - google-oauth-api
     - google-userinfo-api
   documentation:
-    - url: https://github.com/rksharma1401/google-auth-local/tree/main/docs
+    - url: https://github.com/rksharma1401/storeData/tree/main/docs
   ci:
     - type: circleci
       url: https://app.circleci.com/pipelines/github/rksharma1401/google-auth-local
