@@ -9,9 +9,9 @@ metadata:
     - google
     - oauth
   annotations:
-    backstage.io/adr-location: https://github.com/rksharma1401/storeData/tree/main/adr
+    backstage.io/adr-location: https://github.com/rksharma1401/storeData/tree/main/adr/
     github.com/project-slug: rksharma1401/google-auth-local
-    backstage.io/techdocs-ref:  https://github.com/rksharma1401/storeData/tree/main/docs
+    backstage.io/techdocs-ref:  https://github.com/rksharma1401/storeData/tree/main/docs/
     circleci.com/project-slug: github/rksharma1401/google-auth-local
 spec:
   type: service
@@ -37,7 +37,7 @@ spec:
     - url: http://localhost:9090/oauth2callback
       title: Google OAuth Callback Endpoint
       icon: dashboard
-    - url: https://github.com/rksharma1401/storeData/tree/main/adr
+    - url: https://github.com/rksharma1401/storeData/tree/main/adr/
       title: Architecture Decision Records
       icon: description
 ---
