@@ -2,8 +2,8 @@ apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
   name: google-auth-local
-  title: Google Auth (Local/Test)
-  description: "Google OAuth 2.0 Identity Provider configured for local development or testing"
+  title: Google Auth (Local/Test/Demo)
+  description: Google OAuth 2.0 Identity Provider configured for local development or testing
   tags:
     - idp
     - google
@@ -13,14 +13,6 @@ metadata:
     github.com/project-slug: rksharma1401/google-auth-local
     backstage.io/techdocs-ref: dir:.
     circleci.com/project-slug: github/rksharma1401/google-auth-local
-
-  links:
-    - url: http://localhost:9090/oauth2callback
-      title: Google OAuth Callback Endpoint
-      icon: dashboard
-    - url: https://github.com/rksharma1401/storeData/tree/main/adr
-      title: Architecture Decision Records
-      icon: description
 spec:
   type: service
   lifecycle: development
@@ -31,8 +23,43 @@ spec:
     - google-token-validation-api
     - google-userinfo-api
   dependsOn:
-    - component:library/google-oauth-client
-    - component:library/google-auth-sdk
+    - component:google-oauth-client
+    - component:google-auth-sdk
+  consumesApis:
+    - google-oauth-api
+    - google-userinfo-api
+  documentation:
+    - url: https://github.com/rksharma1401/google-auth-local/tree/main/docs
+  ci:
+    - type: circleci
+      url: https://app.circleci.com/pipelines/github/rksharma1401/google-auth-local
+  links:
+    - url: http://localhost:9090/oauth2callback
+      title: Google OAuth Callback Endpoint
+      icon: dashboard
+    - url: https://github.com/rksharma1401/storeData/tree/main/adr
+      title: Architecture Decision Records
+      icon: description
+---
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: google-oauth-client
+  description: Google OAuth Client Library
+spec:
+  type: library
+  lifecycle: production
+  owner: group:default/platform-team
+---
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: google-auth-sdk
+  description: Google Auth SDK
+spec:
+  type: library
+  lifecycle: production
+  owner: group:default/platform-team
 ---
 apiVersion: backstage.io/v1alpha1
 kind: API
