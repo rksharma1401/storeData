@@ -11,8 +11,9 @@ metadata:
   annotations:
     backstage.io/adr-location: https://github.com/rksharma1401/storeData/tree/main/adr/
     github.com/project-slug: rksharma1401/google-auth-local
-    backstage.io/techdocs-ref:  https://github.com/rksharma1401/storeData/tree/main/docs/
+    backstage.io/techdocs-ref: https://github.com/rksharma1401/storeData/tree/main/docs/
     circleci.com/project-slug: github/rksharma1401/google-auth-local
+    jenkins.io/job-full-name: platform-team/google-auth-local
 spec:
   type: service
   lifecycle: development
@@ -33,6 +34,8 @@ spec:
   ci:
     - type: circleci
       url: https://app.circleci.com/pipelines/github/rksharma1401/google-auth-local
+    - type: jenkins
+      url: https://jenkins.example.com/job/platform-team/job/google-auth-local/
   links:
     - url: http://localhost:9090/oauth2callback
       title: Google OAuth Callback Endpoint
@@ -40,107 +43,6 @@ spec:
     - url: https://github.com/rksharma1401/storeData/tree/main/adr/
       title: Architecture Decision Records
       icon: description
----
-apiVersion: backstage.io/v1alpha1
-kind: Component
-metadata:
-  name: google-oauth-client
-  description: Google OAuth Client Library
-spec:
-  type: library
-  lifecycle: production
-  owner: group:default/platform-team
----
-apiVersion: backstage.io/v1alpha1
-kind: Component
-metadata:
-  name: google-auth-sdk
-  description: Google Auth SDK
-spec:
-  type: library
-  lifecycle: production
-  owner: group:default/platform-team
----
-apiVersion: backstage.io/v1alpha1
-kind: API
-metadata:
-  name: google-oauth-api
-  description: Google OAuth 2.0 API for authentication and authorization
-spec:
-  type: openapi
-  lifecycle: development
-  owner: group:default/platform-team
-  definition: |
-    openapi: 3.0.0
-    info:
-      title: Google OAuth API
-      version: "1.0.0"
-    servers:
-      - url: http://localhost:9090
-    paths:
-      /oauth2/v2/auth:
-        get:
-          summary: Initiate OAuth flow
-          responses:
-            '302':
-              description: Redirect to Google login
-      /oauth2/v2/token:
-        post:
-          summary: Exchange code for access token
-          responses:
-            '200':
-              description: Token response
----
-apiVersion: backstage.io/v1alpha1
-kind: API
-metadata:
-  name: google-token-validation-api
-  description: Validate Google OAuth tokens
-spec:
-  type: openapi
-  lifecycle: development
-  owner: group:default/platform-team
-  definition: |
-    openapi: 3.0.0
-    info:
-      title: Google Token Validation API
-      version: "1.0.0"
-    servers:
-      - url: http://localhost:9090
-    paths:
-      /tokeninfo:
-        get:
-          summary: Validate access token
-          parameters:
-            - name: access_token
-              in: query
-              required: true
-              schema:
-                type: string
-          responses:
-            '200':
-              description: Token is valid
----
-apiVersion: backstage.io/v1alpha1
-kind: API
-metadata:
-  name: google-userinfo-api
-  description: Retrieve user profile from Google
-spec:
-  type: openapi
-  lifecycle: development
-  owner: group:default/platform-team
-  definition: |
-    openapi: 3.0.0
-    info:
-      title: Google User Info API
-      version: "1.0.0"
-    servers:
-      - url: http://localhost:9090
-    paths:
-      /userinfo:
-        get:
-          summary: Get user profile
-          responses:
-            '200':
-              description: User profile data
+    - url: https://jenkins.example.com/job/platform-team/job/google-auth-local/
+      title: Jenkins CI/CD Pipeline
+      icon: build
